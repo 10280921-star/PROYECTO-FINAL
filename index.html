@@ -1,2037 +1,423 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Innovación Y Técnología: guía educativa de desarrollo web e inteligencia artificial.">
+  <title>Innovación Y Técnología</title>
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Innovación Y Tecnología</title>
-
-    <!-- CONEXIÓN CON CSS -->
-    <link rel="stylesheet" href="style.css">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
 
+<header class="site-header">
+  <nav class="navbar navbar-expand-xl navbar-dark container-fluid px-lg-5">
+    <a href="#" class="navbar-brand brand" onclick="mostrarSeccion('inicio'); return false;">
+      <img src="logo-propio.png" alt="Logo" class="logo-imagen" onerror="this.style.display='none'">
+      <span>Innovación <strong>Y Técnología</strong></span>
+    </a>
 
-    <!-- =====================================================
-         NAVBAR
-         ===================================================== -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <header class="navbar">
+    <div class="collapse navbar-collapse" id="menuPrincipal">
+      <div class="navbar-nav ms-auto align-items-xl-center nav-links">
+        <button class="nav-link active" onclick="mostrarSeccion('inicio')">Inicio</button>
+        <button class="nav-link" onclick="mostrarSeccion('javascript')">JavaScript</button>
+        <button class="nav-link" onclick="mostrarSeccion('jquery')">jQuery</button>
+        <button class="nav-link" onclick="mostrarSeccion('json')">JSON</button>
+        <button class="nav-link" onclick="mostrarSeccion('hosting')">Hosting y dominios</button>
+        <button class="nav-link" onclick="mostrarSeccion('cuestionario')">Cuestionario</button>
+        <button class="nav-link" onclick="mostrarSeccion('herramientasIA')">15 herramientas IA</button>
+        <button class="nav-link" onclick="mostrarSeccion('guiaIA')">Cómo se usan</button>
+        <button id="modoOscuro" class="btn btn-theme ms-xl-2" onclick="alternarModoOscuro()">🌙 Modo oscuro</button>
+      </div>
+    </div>
+  </nav>
+</header>
 
-        <div class="contenedor nav-contenido">
+<main>
 
+<!-- INICIO -->
+<section id="inicio" class="seccion activa">
+  <div class="hero-wrap">
+    <div class="container hero-content">
+      <span class="eyebrow">TECNOLOGÍA · APRENDIZAJE · CREATIVIDAD</span>
+      <h1>Ideas que se convierten en <span>innovación.</span></h1>
+      <p>Un espacio para explorar el desarrollo web y conocer herramientas de inteligencia artificial que pueden apoyar tus proyectos.</p>
+      <div class="d-flex flex-wrap gap-3">
+        <button class="btn btn-primary-custom" onclick="mostrarSeccion('javascript')">Explorar temas</button>
+        <button class="btn btn-outline-custom" onclick="mostrarSeccion('herramientasIA')">Conocer las herramientas</button>
+      </div>
+      <div class="hero-note"><span class="status-dot"></span> Material educativo para aprender paso a paso</div>
+    </div>
+  </div>
 
-            <a href="#" class="logo" onclick="mostrarSeccion('inicio')">
+  <div class="container section-space">
+    <div class="section-heading">
+      <span class="eyebrow">CONTENIDO DEL SITIO</span>
+      <h2>Aprende a tu ritmo</h2>
+      <p>Consulta los temas, prueba los ejemplos y comprueba lo que has aprendido.</p>
+    </div>
 
-                <svg class="logo-svg"
-                     viewBox="0 0 100 100"
-                     xmlns="http://www.w3.org/2000/svg">
+    <!-- CARRUSEL BOOTSTRAP CON TRANSICIÓN CROSSFADE -->
+    <div id="carruselPrincipal" class="carousel slide carousel-fade home-carousel mb-5" data-bs-ride="carousel" data-bs-interval="4500">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carruselPrincipal" data-bs-slide-to="0" class="active" aria-label="Diapositiva 1"></button>
+        <button type="button" data-bs-target="#carruselPrincipal" data-bs-slide-to="1" aria-label="Diapositiva 2"></button>
+        <button type="button" data-bs-target="#carruselPrincipal" data-bs-slide-to="2" aria-label="Diapositiva 3"></button>
+      </div>
 
-                    <rect
-                        x="10"
-                        y="10"
-                        width="80"
-                        height="80"
-                        rx="20"
-                        fill="#10B981"/>
-
-                    <path
-                        d="M30 35 H70 V65 C70 75 62 80 50 80 C38 80 30 75 30 65 Z"
-                        fill="#1E293B"/>
-
-                    <path
-                        d="M70 42 H78 C85 42 87 50 82 56 H70"
-                        fill="none"
-                        stroke="#1E293B"
-                        stroke-width="6"/>
-
-                    <path
-                        d="M40 25 C37 20 44 17 41 12"
-                        stroke="#1E293B"
-                        stroke-width="4"
-                        fill="none"/>
-
-                    <path
-                        d="M52 25 C49 20 56 17 53 12"
-                        stroke="#1E293B"
-                        stroke-width="4"
-                        fill="none"/>
-
-                </svg>
-
-                Innovación Y Tecnología 
-
-            </a>
-
-
-            <nav class="menu">
-
-                <button class="activo"
-                        onclick="mostrarSeccion('inicio')">
-                    Inicio
-                </button>
-
-                <button onclick="mostrarSeccion('javascript')">
-                    JavaScript
-                </button>
-
-                <button onclick="mostrarSeccion('jquery')">
-                    jQuery
-                </button>
-
-                <button onclick="mostrarSeccion('json')">
-                    JSON
-                </button>
-
-                <button onclick="mostrarSeccion('hosting')">
-                    Hosting
-                </button>
-
-                <button onclick="mostrarSeccion('cuestionario')">
-                    Cuestionario
-                </button>
-
-            </nav>
-
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="diseño-de-concepto-inteligencia-artificial-icono-la-tecnología-circuito-y-cerebro-futurista-394031695.webp" class="d-block w-100 carousel-img" alt="Desarrollo web">
+          <div class="carousel-caption">
+            <span>01 / DESARROLLO WEB</span>
+            <h3>De la idea a una página funcional</h3>
+            <p>HTML, CSS y JavaScript trabajan juntos para crear experiencias web.</p>
+          </div>
         </div>
 
-    </header>
-
-
-
-    <!-- =====================================================
-         CONTENIDO PRINCIPAL
-         ===================================================== -->
-
-    <main>
-
-
-        <!-- =================================================
-             INICIO
-             ================================================= -->
-
-        <section id="inicio" class="seccion activa">
-
-
-            <div class="hero">
-
-                <div class="contenedor hero-contenido">
-
-
-                    <div class="hero-texto">
-
-                        <span class="etiqueta">
-                            Tecnología • Educación • Innovación
-                        </span>
-
-
-                        <h1>
-
-                            Innovación
-
-                            <span>
-                                Y Tecnología
-                            </span>
-
-                        </h1>
-
-
-                        <h2>
-                            Aprende desarrollo web de manera sencilla.
-                        </h2>
-
-
-                        <p>
-
-
-                            Innovación Y Tecnología es una plataforma
-                            educativa creada para estudiantes que
-                            desean aprender los conceptos fundamentales
-                            del desarrollo web moderno.
-
-                        </p>
-
-
-                        <p>
-
-                            Aquí podrás aprender sobre JavaScript,
-                            jQuery, JSON, hosting, dominios y
-                            publicación de páginas web mediante
-                            ejemplos sencillos e interactivos.
-
-                        </p>
-
-
-                        <div class="botones">
-
-                            <button
-                                class="btn btn-principal"
-                                onclick="mostrarSeccion('javascript')">
-
-                                Comenzar aprendizaje
-
-                            </button>
-
-
-                            <button
-                                class="btn btn-secundario"
-                                onclick="mostrarSeccion('cuestionario')">
-
-                                Realizar cuestionario
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- LOGO GRANDE -->
-
-                    <div class="logo-grande">
-
-                        <div class="logo-circulo">
-
-                            <svg
-                                viewBox="0 0 100 100"
-                                xmlns="http://www.w3.org/2000/svg">
-
-                                <rect
-                                    x="10"
-                                    y="10"
-                                    width="80"
-                                    height="80"
-                                    rx="20"
-                                    fill="#10B981"/>
-
-                                <path
-                                    d="M30 35 H70 V65 C70 75 62 80 50 80 C38 80 30 75 30 65 Z"
-                                    fill="#1E293B"/>
-
-                                <path
-                                    d="M70 42 H78 C85 42 87 50 82 56 H70"
-                                    fill="none"
-                                    stroke="#1E293B"
-                                    stroke-width="6"/>
-
-                            </svg>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- INFORMACIÓN DEL PRODUCTO -->
-
-            <div class="contenedor informacion">
-
-
-                <div class="titulo">
-
-                    <h2>
-                        Identidad del producto
-                    </h2>
-
-                    <p>
-                        Una propuesta educativa enfocada en tecnología
-                        y desarrollo web.
-                    </p>
-
-                </div>
-
-
-
-                <div class="informacion-grid">
-
-
-                    <div class="info-box">
-
-                        <div class="icono">
-                            <img src="fa395513-591f-4fd0-9333-9028990f0bd2.15869714f7c895d93ed367f5c530be59.avif" alt width="100" height="100">
-
-                        </div>
-
-                        <h3>
-                            Descripción
-                        </h3>
-
-                        <p>
-
-                            Innovación Y Tecnología es una plataforma
-                            digital educativa que reúne información
-                            sobre diferentes tecnologías utilizadas
-                            en el desarrollo web.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="info-box">
-
-                        <div class="icono">
-                            <img src="ilustracion-3d-sombrero-academico-borla-dorada_107791-16182.avif" width="130" height="90">
-
-                        </div>
-
-                        <h3>
-                            Público objetivo
-                        </h3>
-
-                        <p>
-
-                            Está dirigida a estudiantes,
-                            principiantes de programación y personas
-                            interesadas en aprender desarrollo web.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="info-box">
-
-                        <div class="icono">
-                            <img src="human-hand-robotic-touch-over-260nw-2759807845.webp" alt width="150" height="100">
-
-                        </div>
-
-                        <h3>
-                            Propuesta de valor
-                        </h3>
-
-                        <p>
-
-                            Facilitar el aprendizaje mediante
-                            explicaciones sencillas, ejemplos de
-                            código y actividades interactivas que 
-                            beneficien a las personas digitales y 
-                            mostrar distintos beneficios tecnologicos.
-
-                        </p>
-
-                    </div>
-                    <div class="info-box">
-                        <div class="icono">
-                            <img src="images.jpg" alt width="150" height="100">
-
-                    </div>
-                          
-
-                        
-                        <h3>
-                        Nuestro Proposito 
-                       </h3>
-                       
-                       <p>
-                         Nuestro proposito es innovar en la tecnología y en la educación
-                         para nuestros clientes y tener claridad y objetividad en lo que 
-                         ofrecemos como empresa y página de servicios digitales y modernos.
-                     
-                   
-
-                       </p>
-                       
-
-                       </div>
-
-                </div>
-
-
-
-                <!-- PALETA DE COLORES -->
-
-                <div class="titulo espacio-arriba">
-
-                    <h2>
-                        Paleta de colores
-                    </h2>
-
-                    <p>
-                        Los colores representan la identidad de
-                        Innovación Y Tecnología.
-                    </p>
-
-                </div>
-
-
-
-                <div class="paleta">
-
-
-                    <div class="color-box color-azul">
-
-                        <span class="codigo-color">
-                            #1E293B
-                        </span>
-
-                        <h3>
-                            Azul Marino
-                        </h3>
-
-                        <p>
-                            Representa confianza, seguridad,
-                            tecnología y profesionalismo.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="color-box color-verde">
-
-                        <span class="codigo-color">
-                            #10B981
-                        </span>
-
-                        <h3>
-                            Verde Menta
-                        </h3>
-
-                        <p>
-                            Representa innovación, crecimiento,
-                            aprendizaje y energía.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="color-box color-gris">
-
-                        <span class="codigo-color">
-                            #F8FAFC
-                        </span>
-
-                        <h3>
-                            Gris Claro
-                        </h3>
-
-                        <p>
-                            Transmite limpieza, claridad,
-                            simplicidad y comodidad visual.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             JAVASCRIPT
-             ================================================= -->
-
-        <section id="javascript" class="seccion">
-
-
-            <div class="contenedor contenido">
-
-
-                <div class="titulo">
-
-                    <h2>
-                        JavaScript Vanilla
-                    </h2>
-
-                    <p>
-                        El lenguaje utilizado para agregar
-                        comportamiento e interactividad.
-                    </p>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        ¿Qué es JavaScript?
-                    </h3>
-
-                    <p>
-
-                        JavaScript es un lenguaje de programación
-                        utilizado principalmente para crear
-                        páginas web interactivas.
-
-                    </p>
-
-                    <p>
-
-                        Permite modificar elementos HTML,
-                        responder a acciones del usuario,
-                        validar formularios, crear efectos
-                        y comunicarse con servidores.
-
-                    </p>
-
-
-                    <h4>
-                        HTML, CSS y JavaScript
-                    </h4>
-
-
-                    <div class="grid">
-
-
-                        <div class="tarjeta">
-
-                            <div class="icono">
-                                <img src="html-e1523631467593.jpeg" alt width="150" height="100">
-
-                            </div>
-
-                            <h3>
-                                HTML
-                            </h3>
-
-                            <p>
-                                Define la estructura de la página y el  HTML es el Lenguaje de Marcado de Hipertexto (HyperText Markup Language), el código estándar que se usa para crear y estructurar la estructura básica de las páginas web.
-                            </p>
-
-                        </div>
-
-
-                        <div class="tarjeta">
-
-                            <div class="icono">
-                                <img src="color.png" alt width="150" height="100">
-
-                            </div>
-
-                            <h3>
-                                CSS
-                            </h3>
-
-                            <p>
-                                Define el diseño y apariencia CSS (por sus siglas en inglés, Cascading Style Sheets, o Hojas de Estilo en Cascada) es un lenguaje de diseño que sirve para definir la apariencia visual de los documentos escritos en HTML o XML.
-                            </p>
-
-                        </div>
-
-
-                        <div class="tarjeta">
-
-                            <div class="icono">
-                                <img src="que-es-javascript-800x450.width-640.webp" alt width="150" height="100">
-                            </div>
-
-                            <h3>
-                                JavaScript
-                            </h3>
-
-                            <p>
-                                Agrega comportamiento e interacción JavaScript es un lenguaje de programación que se utiliza para dar interactividad, dinamismo y comportamiento a las páginas web.
-                            </p>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Variables
-                    </h3>
-
-                    <p>
-                        Las variables almacenan información.
-                    </p>
-
-
-                    <pre><code><span class="palabra">let</span> nombre = <span class="cadena">"Innovación Y Tecnología"</span>;
-<span class="palabra">let</span> precio = <span class="numero">25</span>;
-<span class="palabra">let</span> activo = <span class="palabra">true</span>;</code></pre>
-
-
-                    <h3 class="codigo-titulo">
-                        Funciones
-                    </h3>
-
-                    <p>
-                        Las funciones permiten agrupar instrucciones.
-                    </p>
-
-
-                    <pre><code><span class="palabra">function</span> <span class="funcion">saludar</span>() {
-
-    <span class="funcion">alert</span>(<span class="cadena">"Bienvenido a Innovación Y Tecnología"</span>);
-
+        <div class="carousel-item">
+          <img src="images (2).jpg" class="d-block w-100 carousel-img" alt="Inteligencia artificial">
+          <div class="carousel-caption">
+            <span>02 / INTELIGENCIA ARTIFICIAL</span>
+            <h3>Nuevas formas de crear y aprender</h3>
+            <p>Conoce herramientas para investigar, diseñar y programar.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="premium_photo-1661877737564-3dfd7282efcb.avif" class="d-block w-100 carousel-img" alt="Creatividad digital">
+          <div class="carousel-caption">
+            <span>03 / CREATIVIDAD</span>
+            <h3>Experimenta, practica y mejora</h3>
+            <p>La mejor manera de aprender tecnología es ponerla en práctica.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carruselPrincipal" data-bs-slide="prev" aria-label="Anterior">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carruselPrincipal" data-bs-slide="next" aria-label="Siguiente">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <div class="topic-grid">
+      <article class="topic-card">
+        <div class="topic-image"><img src="que-es-javascript-800x450.width-640.webp" alt="JavaScript" onerror="this.style.display='none'"><span></span></div>
+        <div class="card-body-custom">
+          <h3>JavaScript</h3><p>Agrega acciones y contenido dinámico a las páginas web.</p>
+          <button class="text-button" onclick="mostrarSeccion('javascript')">Ver tema →</button>
+        </div>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-image"><img src="jQuery-1.jpeg" alt="jQuery" onerror="this.style.display='none'"><span></span></div>
+        <div class="card-body-custom">
+          <h3>jQuery</h3><p>Facilita tareas como manejar eventos y crear efectos visuales.</p>
+          <button class="text-button" onclick="mostrarSeccion('jquery')">Ver tema →</button>
+        </div>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-image"><img src="closeup-view-computer-screen-displaying-260nw-2686721657.webp" alt="JSON" onerror="this.style.display='none'"><span></span></div>
+        <div class="card-body-custom">
+          <h3>JSON</h3><p>Un formato sencillo para intercambiar información.</p>
+          <button class="text-button" onclick="mostrarSeccion('json')">Ver tema →</button>
+        </div>
+      </article>
+
+      <article class="topic-card">
+        <div class="topic-image"><img src="dominio-y-hosting-xpresanet.jpg" alt="Hosting" onerror="this.style.display='none'"><span></span></div>
+        <div class="card-body-custom">
+          <h3>Hosting y dominios</h3><p>Aprende cómo publicar un sitio web en internet.</p>
+          <button class="text-button" onclick="mostrarSeccion('hosting')">Ver tema →</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="color-note mt-5">
+      <h3>Identidad visual de Innovación Y Técnología</h3>
+      <p><strong>Negro #111111:</strong> tecnología y elegancia. <strong>Amarillo #FFD400:</strong> destaca elementos importantes. <strong>Blanco #FFFFFF:</strong> claridad y lectura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JAVASCRIPT -->
+<section id="javascript" class="seccion">
+  <div class="container section-space">
+    <div class="section-heading">
+      <span class="eyebrow">TEMA 01</span><h2>JavaScript</h2>
+      <p>El lenguaje que permite dar interactividad a una página web.</p>
+    </div>
+
+    <div class="content-grid">
+      <article class="info-panel">
+        <h3>¿Qué es JavaScript?</h3>
+        <p>JavaScript es un lenguaje de programación que permite responder a las acciones de los usuarios, actualizar contenido, validar formularios y crear experiencias interactivas.</p>
+        <p>HTML organiza el contenido, CSS define su apariencia y JavaScript controla gran parte del comportamiento de una página web.</p>
+        <h3>¿Para qué se utiliza?</h3>
+        <ul>
+          <li>Mostrar u ocultar elementos.</li>
+          <li>Validar formularios.</li>
+          <li>Actualizar información.</li>
+          <li>Crear juegos y aplicaciones web.</li>
+        </ul>
+      </article>
+      <aside class="image-panel">
+        <img src="images (3).jpg" alt="JavaScript" onerror="this.style.display='none'">
+
+        
+      </aside>
+    </div>
+
+    <h3 class="subheading">Ejemplo práctico</h3>
+    <pre class="code-block"><code>function saludar() {
+  document.getElementById("mensajeJS").textContent =
+    "¡Hola desde JavaScript!";
 }</code></pre>
-
-
-                    <h3 class="codigo-titulo">
-                        Eventos
-                    </h3>
-
-                    <p>
-                        Los eventos permiten reaccionar a acciones
-                        realizadas por el usuario.
-                    </p>
-
-
-                    <pre><code><span class="palabra">document</span>
-    .getElementById(<span class="cadena">"boton"</span>)
-    .addEventListener(<span class="cadena">"click"</span>, <span class="palabra">function</span>() {
-
-        <span class="funcion">alert</span>(<span class="cadena">"Has hecho clic"</span>);
-
-    });</code></pre>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Ejemplo práctico
-                    </h3>
-
-                    <p>
-                        Presiona el botón para ejecutar JavaScript.
-                    </p>
-
-
-                    <button
-                        id="botonJS"
-                        class="btn btn-principal">
-
-                        Ejecutar JavaScript
-
-                    </button>
-
-
-                    <div
-                        id="resultadoJS"
-                        class="demo resultado-js">
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Fuentes / Bibliografía
-                    </h3>
-
-                    <p>
-                        • MDN Web Docs - JavaScript
-                    </p>
-
-                    <p>
-                        • W3Schools - JavaScript
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             JQUERY
-             ================================================= -->
-
-        <section id="jquery" class="seccion">
-
-
-            <div class="contenedor contenido">
-
-
-                <div class="titulo">
-
-                    <h2>
-                        jQuery
-                    </h2>
-
-                    <p>
-                        Biblioteca de JavaScript que simplifica
-                        tareas comunes del desarrollo web.
-                    </p>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        ¿Qué es jQuery?
-                    </h3>
-
-                    <p>
-
-                        jQuery es una biblioteca de JavaScript
-                        creada para simplificar tareas como
-                        manipulación del DOM, eventos y efectos
-                        visuales.
-
-                    </p>
-
-
-                    <h4>
-                        ¿Por qué nació?
-                    </h4>
-
-                    <p>
-
-                        Fue creada en una época en la que los
-                        navegadores tenían muchas diferencias
-                        entre sí. jQuery permitió escribir
-                        código más sencillo y compatible.
-
-                    </p>
-
-
-                    <h4>
-                        Sintaxis $
-                    </h4>
-
-
-                    <pre><code><span class="funcion">$("#menu")</span>
-
-<span class="funcion">$("#mensaje").fadeIn()</span>
-
-<span class="funcion">$("#caja").slideToggle()</span></code></pre>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Ventajas y desventajas
-                    </h3>
-
-
-                    <div class="grid">
-
-
-                        <div class="tarjeta">
-
-                            <h3>
-                                Ventajas
-                            </h3>
-
-                            <p>
-                                ✓ Sintaxis sencilla.
-                            </p>
-
-                            <p>
-                                ✓ Manipulación fácil del DOM.
-                            </p>
-
-                            <p>
-                                ✓ Efectos y animaciones.
-                            </p>
-
-                            <p>
-                                ✓ Fue útil para compatibilidad
-                                entre navegadores.
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="tarjeta">
-
-                            <h3>
-                                Desventajas
-                            </h3>
-
-                            <p>
-                                ✗ Agrega una dependencia.
-                            </p>
-
-                            <p>
-                                ✗ JavaScript moderno ya tiene
-                                muchas funciones similares.
-                            </p>
-
-                            <p>
-                                ✗ Puede ser innecesario para
-                                proyectos pequeños.
-                            </p>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        JavaScript Vanilla vs jQuery
-                    </h3>
-
-
-                    <div class="tabla-contenedor">
-
-                        <table>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th>
-                                        JavaScript Vanilla
-                                    </th>
-
-                                    <th>
-                                        jQuery
-                                    </th>
-
-                                </tr>
-
-                            </thead>
-
-
-                            <tbody>
-
-                                <tr>
-
-                                    <td>
-                                        document.querySelector("#menu")
-                                    </td>
-
-                                    <td>
-                                        $("#menu")
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>
-                                        addEventListener("click", ...)
-                                    </td>
-
-                                    <td>
-                                        .click(...)
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>
-                                        element.style.display = "none"
-                                    </td>
-
-                                    <td>
-                                        $("#element").hide()
-                                    </td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Demostración de slideToggle()
-                    </h3>
-
-                    <p>
-
-                        El siguiente ejemplo simula el efecto
-                        <strong>slideToggle()</strong> utilizando
-                        JavaScript y CSS.
-
-                    </p>
-
-
-                    <div class="demo">
-
-                        <button
-                            id="botonJquery"
-                            class="btn btn-principal">
-
-                            slideToggle()
-
-                        </button>
-
-
-                        <div id="cajaJquery">
-
-                            ¡Hola! Este elemento tiene un efecto
-                            parecido al slideToggle de jQuery.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Fuentes consultadas
-                    </h3>
-
-                    <p>
-                        • jQuery Documentation
-                    </p>
-
-                    <p>
-                        • W3Schools - jQuery
-                    </p>
-
-                    <p>
-                        • MDN Web Docs
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             JSON
-             ================================================= -->
-
-        <section id="json" class="seccion">
-
-
-            <div class="contenedor contenido">
-
-
-                <div class="titulo">
-
-                    <h2>
-                        JSON
-                    </h2>
-
-                    <p>
-                        JavaScript Object Notation.
-                    </p>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        ¿Qué es JSON?
-                    </h3>
-
-                    <p>
-
-                        JSON significa JavaScript Object Notation.
-                        Es un formato de texto utilizado para
-                        representar y transportar información.
-
-                    </p>
-
-                    <p>
-
-                        Es muy utilizado en APIs y aplicaciones
-                        web para intercambiar datos entre
-                        clientes y servidores.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Estructura de JSON
-                    </h3>
-
-
-                    <div class="grid">
-
-
-                        <div class="tarjeta">
-
-                            <h3>
-                                Clave - Valor
-                            </h3>
-
-
-                            <pre><code>{
-    <span class="cadena">"nombre"</span>: <span class="cadena">"Innovación Y Tecnología"</span>
+    <button class="btn btn-primary-custom" onclick="ejemploJavaScript()">Probar JavaScript</button>
+    <p id="mensajeJS" class="demo-message">Pulsa el botón para cambiar este mensaje.</p>
+  </div>
+</section>
+
+<!-- JQUERY -->
+<section id="jquery" class="seccion">
+  <div class="container section-space">
+    <div class="section-heading">
+      <span class="eyebrow">TEMA 02</span><h2>jQuery</h2>
+      <p>Una biblioteca de JavaScript que simplifica tareas del desarrollo web.</p>
+    </div>
+    <div class="content-grid">
+      <article class="info-panel">
+        <h3>¿Qué es jQuery?</h3>
+        <p>jQuery es una biblioteca que facilita seleccionar elementos HTML, gestionar eventos, modificar contenido y realizar animaciones.</p>
+        <p>Se reconoce por el uso frecuente de <code>$()</code>. Aunque muchas funciones pueden realizarse con JavaScript moderno, todavía se utiliza en proyectos existentes.</p>
+        <h3>Usos habituales</h3>
+        <ul><li>Seleccionar elementos HTML.</li><li>Responder a clics.</li><li>Modificar clases CSS.</li><li>Crear animaciones.</li></ul>
+      </article>
+      <aside class="image-panel">
+        <img src="jquery.jpg.bv_resized_mobile.jpg.bv.webp" alt="jQuery" onerror="this.style.display='none'">
+       
+    </div>
+    <h3 class="subheading">Ejemplo práctico</h3>
+    <pre class="code-block"><code>$("#boton").on("click", function () {
+  $("#mensaje").slideToggle();
+});</code></pre>
+    <button class="btn btn-primary-custom" onclick="ejemploJquery()">Mostrar / ocultar mensaje</button>
+    <p id="mensajeJquery" class="demo-message">Este mensaje se puede mostrar u ocultar.</p>
+  </div>
+</section>
+
+<!-- JSON -->
+<section id="json" class="seccion">
+  <div class="container section-space">
+    <div class="section-heading">
+      <span class="eyebrow">TEMA 03</span><h2>JSON</h2>
+      <p>Un formato de texto ligero para organizar e intercambiar datos.</p>
+    </div>
+    <div class="content-grid">
+      <article class="info-panel">
+        <h3>¿Qué significa JSON?</h3>
+        <p>JSON significa <strong>JavaScript Object Notation</strong> (Notación de Objetos de JavaScript). Puede utilizarse con muchos lenguajes de programación.</p>
+        <p>Organiza datos mediante pares de clave y valor. Sus valores pueden ser texto, números, valores booleanos, listas, objetos o <code>null</code>.</p>
+        <h3>¿Dónde se utiliza?</h3>
+        <ul><li>Intercambio de datos.</li><li>Respuestas de APIs.</li><li>Configuración de aplicaciones.</li><li>Datos estructurados.</li></ul>
+      </article>
+      <aside class="image-panel">
+        <img src="istockphoto-1162709675-612x612.jpg" alt="JSON" onerror="this.style.display='none'">
+        <div class="image-placeholder">Espacio para imagen de JSON</div>
+      </aside>
+    </div>
+    <h3 class="subheading">Ejemplo de JSON</h3>
+    <pre class="code-block"><code>{
+  "nombre": "Innovación Y Técnología",
+  "curso": "Desarrollo web",
+  "activo": true,
+  "temas": ["JavaScript", "jQuery", "JSON"]
 }</code></pre>
-
-                        </div>
-
-
-
-                        <div class="tarjeta">
-
-                            <h3>
-                                Array
-                            </h3>
-
-
-                            <pre><code>[
-    <span class="cadena">"HTML"</span>,
-    <span class="cadena">"CSS"</span>,
-    <span class="cadena">"JavaScript"</span>
-]</code></pre>
-
-                        </div>
-
-
-
-                        <div class="tarjeta">
-
-                            <h3>
-                                Objeto
-                            </h3>
-
-
-                            <pre><code>{
-    <span class="cadena">"nombre"</span>: <span class="cadena">"Innovación Y Tecnología"</span>,
-    <span class="cadena">"activo"</span>: <span class="palabra">true</span>
-}</code></pre>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Objeto JavaScript vs JSON
-                    </h3>
-
-
-                    <div class="json-comparacion">
-
-
-                        <div class="json-card">
-
-                            <h3>
-                                Objeto JavaScript
-                            </h3>
-
-
-                            <pre><code><span class="palabra">const</span> usuario = {
-
-    nombre: <span class="cadena">"Eli"</span>,
-
-    edad: <span class="numero">18</span>
-
-};</code></pre>
-
-                        </div>
-
-
-
-                        <div class="json-card">
-
-                            <h3>
-                                Cadena JSON
-                            </h3>
-
-
-                            <pre><code>{
-    <span class="cadena">"nombre"</span>: <span class="cadena">"Eli"</span>,
-    <span class="cadena">"edad"</span>: <span class="numero">18</span>
-}</code></pre>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Comunicación Cliente - Servidor
-                    </h3>
-
-                    <p>
-
-                        Una página web puede enviar una solicitud
-                        a una API REST. El servidor procesa la
-                        solicitud y puede responder utilizando
-                        información en formato JSON.
-
-                    </p>
-
-
-                    <div class="flujo">
-
-
-                        <div class="paso">
-                            Cliente
-                        </div>
-
-
-                        <div class="flecha">
-                            →
-                        </div>
-
-
-                        <div class="paso">
-                            API REST
-                        </div>
-
-
-                        <div class="flecha">
-                            →
-                        </div>
-
-
-                        <div class="paso">
-                            Servidor
-                        </div>
-
-
-                        <div class="flecha">
-                            →
-                        </div>
-
-
-                        <div class="paso">
-                            JSON
-                        </div>
-
-
-                        <div class="flecha">
-                            →
-                        </div>
-
-
-                        <div class="paso">
-                            Cliente
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Fuentes consultadas
-                    </h3>
-
-                    <p>
-                        • MDN Web Docs - JSON
-                    </p>
-
-                    <p>
-                        • W3Schools - JSON
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             HOSTING
-             ================================================= -->
-
-        <section id="hosting" class="seccion">
-
-
-            <div class="contenedor contenido">
-
-
-                <div class="titulo">
-
-                    <h2>
-                        Web Hosting y Dominios
-                    </h2>
-
-                    <p>
-                        Cómo una página web llega a Internet.
-                    </p>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        ¿Qué es Web Hosting?
-                    </h3>
-
-                    <p>
-
-                        Web Hosting es el servicio que permite
-                        almacenar los archivos de un sitio web
-                        en servidores conectados a Internet.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Tipos de Hosting
-                    </h3>
-
-
-                    <div class="hosting-grid">
-
-
-                        <div class="hosting-card">
-
-                            <h3>
-                                Hosting Compartido
-                            </h3>
-
-                            <p>
-
-                                Varios sitios web comparten
-                                recursos de un mismo servidor.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="hosting-card">
-
-                            <h3>
-                                VPS
-                            </h3>
-
-                            <p>
-
-                                Un servidor virtual que tiene
-                                recursos asignados para un proyecto.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="hosting-card">
-
-                            <h3>
-                                Cloud Hosting
-                            </h3>
-
-                            <p>
-
-                                Utiliza recursos distribuidos
-                                entre diferentes servidores.
-
-                            </p>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Vercel y proyectos estáticos
-                    </h3>
-
-                    <p>
-
-                        Vercel es una plataforma que permite
-                        desplegar proyectos web. Puede conectarse
-                        con repositorios de GitHub para publicar
-                        automáticamente un proyecto.
-
-                    </p>
-
-
-                    <div class="flujo">
-
-
-                        <div class="paso">
-                            Código
-                        </div>
-
-
-                        <div class="flecha">
-                            →
-                        </div>
-
-
-                        <div class="paso">
-                            GitHub
-                        </div>
-
-
-                        <div class="flecha">
-                            →
-                        </div>
-
-
-                        <div class="paso">
-                            Vercel
-                        </div>
-
-
-                        <div class="flecha">
-                            →
-                        </div>
-
-
-                        <div class="paso">
-                            Internet
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Dominios
-                    </h3>
-
-                    <p>
-
-                        Un dominio es el nombre que una persona
-                        utiliza para acceder a un sitio web.
-
-                    </p>
-
-
-                    <pre><code>www.innovación y tecnología.com</code></pre>
-
-
-                    <h4>
-                        TLD
-                    </h4>
-
-                    <p>
-
-                        TLD significa Top-Level Domain.
-
-                    </p>
-
-                    <p>
-                        <strong>.com</strong> → comercial
-                    </p>
-
-                    <p>
-                        <strong>.net</strong> → redes
-                    </p>
-
-                    <p>
-                        <strong>.org</strong> → organizaciones
-                    </p>
-
-
-                    <h4>
-                        Subdominio
-                    </h4>
-
-                    <p>
-
-                        Un subdominio es una dirección que pertenece
-                        a un dominio principal.
-
-                    </p>
-
-
-                    <pre><code>blog.novatech.com</code></pre>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Propagación DNS
-                    </h3>
-
-                    <p>
-
-                        El DNS permite encontrar el servidor
-                        correspondiente a un dominio.
-
-                    </p>
-
-
-                    <div class="dns">
-
-
-                        <div class="dns-paso">
-
-                            <strong>1.</strong>
-                            Cliente
-
-                        </div>
-
-
-                        <div class="dns-flecha">
-                            ↓
-                        </div>
-
-
-                        <div class="dns-paso">
-
-                            <strong>2.</strong>
-                            DNS Root
-
-                        </div>
-
-
-                        <div class="dns-flecha">
-                            ↓
-                        </div>
-
-
-                        <div class="dns-paso">
-
-                            <strong>3.</strong>
-                            Servidor TLD
-
-                        </div>
-
-
-                        <div class="dns-flecha">
-                            ↓
-                        </div>
-
-
-                        <div class="dns-paso">
-
-                            <strong>4.</strong>
-                            Nameserver
-
-                        </div>
-
-
-                        <div class="dns-flecha">
-                            ↓
-                        </div>
-
-
-                        <div class="dns-paso">
-
-                            <strong>5.</strong>
-                            IP del servidor
-
-                        </div>
-
-
-                        <div class="dns-flecha">
-                            ↓
-                        </div>
-
-
-                        <div class="dns-paso">
-
-                            <strong>6.</strong>
-                            Página Web
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="bloque">
-
-                    <h3>
-                        Fuentes consultadas
-                    </h3>
-
-                    <p>
-                        • Vercel Documentation
-                    </p>
-
-                    <p>
-                        • MDN Web Docs
-                    </p>
-
-                    <p>
-                        • W3Schools
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             CUESTIONARIO
-             ================================================= -->
-
-        <section id="cuestionario" class="seccion">
-
-
-            <div class="contenedor contenido">
-
-
-                <div class="titulo">
-
-                    <h2>
-                        Cuestionario Web
-                    </h2>
-
-                    <p>
-                        Responde las 8 preguntas para comprobar
-                        tus conocimientos.
-                    </p>
-
-                </div>
-
-
-
-                <form id="quizForm">
-
-
-                    <!-- PREGUNTA 1 -->
-
-                    <div class="pregunta"
-                         data-correcta="b"
-                         data-explicacion="JavaScript permite agregar comportamiento e interactividad a las páginas web.">
-
-                        <h3>
-                            1. ¿Cuál es una función principal de JavaScript?
-                        </h3>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p1"
-                                   value="a">
-
-                            A) Crear solamente estructuras HTML
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p1"
-                                   value="b">
-
-                            B) Agregar interactividad a una página web
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p1"
-                                   value="c">
-
-                            C) Registrar dominios
-
-                        </label>
-
-
-                        <div class="explicacion"></div>
-
-                    </div>
-
-
-
-                    <!-- PREGUNTA 2 -->
-
-                    <div class="pregunta"
-                         data-correcta="a"
-                         data-explicacion="HTML define la estructura y el contenido de una página web.">
-
-                        <h3>
-                            2. ¿Qué tecnología define la estructura de una página web?
-                        </h3>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p2"
-                                   value="a">
-
-                            A) HTML
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p2"
-                                   value="b">
-
-                            B) CSS
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p2"
-                                   value="c">
-
-                            C) JSON
-
-                        </label>
-
-
-                        <div class="explicacion"></div>
-
-                    </div>
-
-
-
-                    <!-- PREGUNTA 3 -->
-
-                    <div class="pregunta"
-                         data-correcta="c"
-                         data-explicacion="El símbolo $ es utilizado frecuentemente por jQuery para acceder a elementos y ejecutar funciones.">
-
-                        <h3>
-                            3. ¿Qué símbolo caracteriza la sintaxis de jQuery?
-                        </h3>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p3"
-                                   value="a">
-
-                            A) #
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p3"
-                                   value="b">
-
-                            B) @
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p3"
-                                   value="c">
-
-                            C) $
-
-                        </label>
-
-
-                        <div class="explicacion"></div>
-
-                    </div>
-
-
-
-                    <!-- PREGUNTA 4 -->
-
-                    <div class="pregunta"
-                         data-correcta="b"
-                         data-explicacion="JSON significa JavaScript Object Notation.">
-
-                        <h3>
-                            4. ¿Qué significa JSON?
-                        </h3>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p4"
-                                   value="a">
-
-                            A) Java Server Object Network
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p4"
-                                   value="b">
-
-                            B) JavaScript Object Notation
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p4"
-                                   value="c">
-
-                            C) JavaScript Online Network
-
-                        </label>
-
-
-                        <div class="explicacion"></div>
-
-                    </div>
-
-
-
-                    <!-- PREGUNTA 5 -->
-
-                    <div class="pregunta"
-                         data-correcta="a"
-                         data-explicacion="JSON utiliza estructuras como pares clave-valor, objetos y arrays.">
-
-                        <h3>
-                            5. ¿Qué elemento forma parte de la estructura de JSON?
-                        </h3>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p5"
-                                   value="a">
-
-                            A) Pares clave-valor
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p5"
-                                   value="b">
-
-                            B) Solamente imágenes
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p5"
-                                   value="c">
-
-                            C) Solamente archivos CSS
-
-                        </label>
-
-
-                        <div class="explicacion"></div>
-
-                    </div>
-
-
-
-                    <!-- PREGUNTA 6 -->
-
-                    <div class="pregunta"
-                         data-correcta="c"
-                         data-explicacion="El hosting permite almacenar los archivos de un sitio web en servidores conectados a Internet.">
-
-                        <h3>
-                            6. ¿Para qué sirve principalmente un Web Hosting?
-                        </h3>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p6"
-                                   value="a">
-
-                            A) Crear código JavaScript
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p6"
-                                   value="b">
-
-                            B) Diseñar logotipos
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p6"
-                                   value="c">
-
-                            C) Almacenar archivos de sitios web
-
-                        </label>
-
-
-                        <div class="explicacion"></div>
-
-                    </div>
-
-
-
-                    <!-- PREGUNTA 7 -->
-
-                    <div class="pregunta"
-                         data-correcta="b"
-                         data-explicacion="Vercel permite desplegar proyectos web y conectarlos con repositorios Git.">
-
-                        <h3>
-                            7. ¿Qué plataforma puede utilizarse para desplegar un proyecto web?
-                        </h3>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p7"
-                                   value="a">
-
-                            A) Paint
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p7"
-                                   value="b">
-
-                            B) Vercel
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p7"
-                                   value="c">
-
-                            C) Calculadora
-
-                        </label>
-
-
-                        <div class="explicacion"></div>
-
-                    </div>
-
-
-
-                    <!-- PREGUNTA 8 -->
-
-                    <div class="pregunta"
-                         data-correcta="a"
-                         data-explicacion="El DNS ayuda a relacionar un dominio con la dirección del servidor correspondiente.">
-
-                        <h3>
-                            8. ¿Qué sistema relaciona un dominio con la dirección de un servidor?
-                        </h3>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p8"
-                                   value="a">
-
-                            A) DNS
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p8"
-                                   value="b">
-
-                            B) CSS
-
-                        </label>
-
-
-                        <label class="opcion">
-
-                            <input type="radio"
-                                   name="p8"
-                                   value="c">
-
-                            C) HTML
-
-                        </label>
-
-
-                        <div class="explicacion"></div>
-
-                    </div>
-
-
-
-                    <button
-                        type="button"
-                        id="botonQuiz"
-                        class="btn btn-principal">
-
-                        Enviar y Evaluar
-
-                    </button>
-
-
-                </form>
-
-
-
-                <div
-                    id="resultadoQuiz"
-                    class="resultado-quiz">
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-
-    <footer>
-
-        <p>
-            <strong>Innovación Y Tecnología</strong>
-        </p>
-
-        <p>
-            Proyecto educativo de desarrollo web.
-        </p>
-
-        <p>
-            HTML5 • CSS3 • JavaScript
-        </p>
-
-    </footer>
-
-
-
-    <!-- CONEXIÓN CON JAVASCRIPT -->
-
-    <script src="script.js"></script>
-
-
+    <div class="table-responsive">
+      <table class="table table-bordered data-table">
+        <thead><tr><th>Clave</th><th>Valor de ejemplo</th><th>Tipo</th></tr></thead>
+        <tbody>
+          <tr><td>nombre</td><td>Innovación Y Técnología</td><td>Texto</td></tr>
+          <tr><td>activo</td><td>true</td><td>Booleano</td></tr>
+          <tr><td>temas</td><td>JavaScript, jQuery, JSON</td><td>Lista</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOSTING Y DOMINIOS -->
+<section id="hosting" class="seccion">
+  <div class="container section-space">
+    <div class="section-heading">
+      <span class="eyebrow">TEMA 04</span><h2>Web Hosting y dominios</h2>
+      <p>Dos conceptos esenciales para publicar una página web en internet.</p>
+    </div>
+    <div class="content-grid">
+      <article class="info-panel">
+        <h3>¿Qué es el hosting?</h3>
+        <p>El hosting o alojamiento web es un servicio que guarda los archivos de un sitio en un servidor conectado a internet.</p>
+        <h3>¿Qué es un dominio?</h3>
+        <p>El dominio es la dirección fácil de recordar que se escribe en el navegador, por ejemplo <code>misitio.com</code>. El DNS ayuda a relacionar ese nombre con los servidores.</p>
+        <h3>¿Cómo trabajan juntos?</h3>
+        <p>El dominio funciona como la dirección de una casa y el hosting como el lugar donde se guardan sus cosas. Para publicar un sitio, se suben los archivos al alojamiento y se configura el dominio.</p>
+      </article>
+      <aside class="image-panel">
+        <img src="web-hosting-services-business-website-260nw-2309564689.webp" alt="Hosting y dominios" onerror="this.style.display='none'">
+        <div class="image-placeholder">Espacio para imagen de hosting</div>
+      </aside>
+    </div>
+    <div class="steps-row">
+      <div><b>01</b><strong>Crear el sitio</strong><span>Prepara HTML, CSS y JavaScript.</span></div>
+      <div><b>02</b><strong>Elegir hosting</strong><span>Sube los archivos al servidor.</span></div>
+      <div><b>03</b><strong>Configurar dominio</strong><span>Relaciona el nombre con el alojamiento.</span></div>
+      <div><b>04</b><strong>Publicar</strong><span>Comprueba que todo funcione.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CUESTIONARIO -->
+<section id="cuestionario" class="seccion">
+  <div class="container section-space narrow-container">
+    <div class="section-heading">
+      <span class="eyebrow">PON A PRUEBA LO APRENDIDO</span><h2>Cuestionario</h2>
+      <p>Selecciona una respuesta por pregunta y después califica tus respuestas.</p>
+    </div>
+
+    <form id="quiz">
+      <div class="pregunta" id="pregunta1"><h3>1. ¿Qué es JavaScript?</h3>
+        <label><input type="radio" name="p1" value="A"> Un lenguaje de programación.</label>
+        <label><input type="radio" name="p1" value="B"> Un editor de imágenes.</label>
+        <label><input type="radio" name="p1" value="C"> Un sistema operativo.</label>
+      </div>
+      <div class="pregunta" id="pregunta2"><h3>2. ¿Qué lenguaje crea la estructura de una página web?</h3>
+        <label><input type="radio" name="p2" value="A"> HTML.</label>
+        <label><input type="radio" name="p2" value="B"> JSON.</label>
+        <label><input type="radio" name="p2" value="C"> SQL.</label>
+      </div>
+      <div class="pregunta" id="pregunta3"><h3>3. ¿Qué símbolo se utiliza habitualmente en jQuery?</h3>
+        <label><input type="radio" name="p3" value="A"> #</label>
+        <label><input type="radio" name="p3" value="B"> @</label>
+        <label><input type="radio" name="p3" value="C"> $</label>
+      </div>
+      <div class="pregunta" id="pregunta4"><h3>4. ¿Qué significa JSON?</h3>
+        <label><input type="radio" name="p4" value="A"> Java Style Object Network.</label>
+        <label><input type="radio" name="p4" value="B"> JavaScript Object Notation.</label>
+        <label><input type="radio" name="p4" value="C"> JavaScript Online Network.</label>
+      </div>
+      <div class="pregunta" id="pregunta5"><h3>5. ¿Cómo se organiza un objeto JSON?</h3>
+        <label><input type="radio" name="p5" value="A"> Pares clave-valor.</label>
+        <label><input type="radio" name="p5" value="B"> Solo imágenes.</label>
+        <label><input type="radio" name="p5" value="C"> Párrafos HTML.</label>
+      </div>
+      <div class="pregunta" id="pregunta6"><h3>6. ¿Para qué sirve el Web Hosting?</h3>
+        <label><input type="radio" name="p6" value="A"> Editar fotografías.</label>
+        <label><input type="radio" name="p6" value="B"> Crear contraseñas.</label>
+        <label><input type="radio" name="p6" value="C"> Almacenar archivos de un sitio web.</label>
+      </div>
+      <div class="pregunta" id="pregunta7"><h3>7. ¿Cuál plataforma permite desplegar sitios web?</h3>
+        <label><input type="radio" name="p7" value="A"> Paint.</label>
+        <label><input type="radio" name="p7" value="B"> Vercel.</label>
+        <label><input type="radio" name="p7" value="C"> Calculadora.</label>
+      </div>
+      <div class="pregunta" id="pregunta8"><h3>8. ¿Qué sistema ayuda a relacionar un dominio con un servidor?</h3>
+        <label><input type="radio" name="p8" value="A"> DNS.</label>
+        <label><input type="radio" name="p8" value="B"> HTML.</label>
+        <label><input type="radio" name="p8" value="C"> CSS.</label>
+      </div>
+
+      <button type="button" class="btn btn-primary-custom" onclick="evaluarQuiz()">Calificar cuestionario</button>
+      <button type="reset" class="btn btn-outline-custom" onclick="limpiarQuiz()">Intentar de nuevo</button>
+      <div id="resultado" class="resultado mt-4" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<!-- 15 HERRAMIENTAS DE IA -->
+<section id="herramientasIA" class="seccion">
+  <div class="container section-space">
+    <div class="section-heading">
+      <span class="eyebrow">GUÍA DE HERRAMIENTAS</span><h2>15 herramientas de IA</h2>
+      <p>Herramientas relacionadas con diseño, aprendizaje, investigación, programación y creatividad.</p>
+    </div>
+
+    <div class="notice"><strong>Nota:</strong> la disponibilidad y las condiciones de uso pueden variar según el país y la cuenta. Comprueba las condiciones vigentes de cada servicio.</div>
+
+    <div class="herramientas-ia">
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="pomelli_logo.jpg" alt="Pomelli" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>01</small><h3>Pomelli</h3><p>Ayuda a crear materiales de marketing para una marca.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="images (4).jpg" alt="Stitch" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>02</small><h3>Stitch</h3><p>Apoya el diseño de interfaces de sitios y aplicaciones.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="1_O6FhGC-0HsDJnQPSX61cuA (1).png" alt="Opal" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>03</small><h3>Opal</h3><p>Permite experimentar con miniaplicaciones y flujos de trabajo con IA.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="antigravity-google-ai-logo.jpg" alt="Antigravity" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>04</small><h3>Google Antigravity</h3><p>Entorno de desarrollo orientado a agentes de inteligencia artificial.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="images (5).jpg" alt="Mixboard" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>05</small><h3>Mixboard</h3><p>Ayuda a explorar ideas visuales y tableros de inspiración.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="6700081179bd85db39f27713_Index (4).png" alt="NotebookLM" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>06</small><h3>NotebookLM</h3><p>Organiza fuentes, resume documentos y ayuda a estudiar.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="google-ai-studio-3838010119515513-12567582109840713.webp" alt="Google AI Studio" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>07</small><h3>Google AI Studio</h3><p>Permite probar modelos Gemini y crear prototipos.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="3AOFPZTRVBHXVG4XK7TYJTDQRM.avif" alt="Disco" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>08</small><h3>Disco</h3><p>Proyecto experimental para explorar formas de organizar información.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="images (6).jpg" alt="Learn Your Way" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>09</small><h3>Learn Your Way / Learn About</h3><p>Experiencias de aprendizaje para explorar temas y repasar.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="images (1).png" alt="Whisk" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>10</small><h3>Whisk</h3><p>Permite experimentar con imágenes de referencia y composiciones visuales.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="gemini-logo.webp" alt="Gemini Code Assist" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>11</small><h3>Gemini Code Assist</h3><p>Asiste en programación, explica código y sugiere mejoras.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="sddefault.jpg" alt="Gemini CLI" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>12</small><h3>Gemini CLI</h3><p>Permite trabajar con Gemini desde una terminal.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="images (2).png" alt="MusicFX" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>13</small><h3>MusicFX</h3><p>Explora la creación de ideas musicales a partir de descripciones.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="images (3).png" alt="TextFX" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>14</small><h3>TextFX</h3><p>Ofrece recursos para jugar con palabras y escritura creativa.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+      <article class="herramienta-ia"><div class="imagen-herramienta"><img src="full-logo.png" alt="Code Wiki" onerror="this.style.display='none'"><span>Espacio para imagen</span></div><small>15</small><h3>Code Wiki</h3><p>Proyecto para explorar documentación de código con ayuda de IA.</p><button class="text-button" onclick="mostrarSeccion('guiaIA')">Cómo se usa →</button></article>
+    </div>
+  </div>
+</section>
+
+<!-- GUÍA DE USO -->
+<section id="guiaIA" class="seccion">
+  <div class="container section-space">
+    <div class="section-heading">
+      <span class="eyebrow">GUÍA PRÁCTICA</span><h2>Cómo empezar a usar las herramientas</h2>
+      <p>Los pasos pueden variar según la herramienta y su disponibilidad.</p>
+    </div>
+
+    <div class="guide-list">
+      <article><span>01</span><div><h3>Pomelli</h3><p>Introduce información de tu marca, revisa las propuestas y ajusta los diseños antes de publicarlos.</p></div></article>
+      <article><span>02</span><div><h3>Stitch</h3><p>Describe la pantalla que necesitas y modifica los componentes, colores y distribución sugeridos.</p></div></article>
+      <article><span>03</span><div><h3>Opal</h3><p>Explica la tarea que quieres resolver, prueba el flujo sugerido y corrige los pasos necesarios.</p></div></article>
+      <article><span>04</span><div><h3>Google Antigravity</h3><p>Define una tarea de programación y revisa los cambios de código antes de aceptarlos.</p></div></article>
+      <article><span>05</span><div><h3>Mixboard</h3><p>Crea un tablero visual y organiza referencias e ideas de inspiración.</p></div></article>
+      <article><span>06</span><div><h3>NotebookLM</h3><p>Añade documentos o fuentes, formula preguntas y comprueba las referencias.</p></div></article>
+      <article><span>07</span><div><h3>Google AI Studio</h3><p>Prueba instrucciones, compara resultados y consulta la documentación oficial.</p></div></article>
+      <article><span>08</span><div><h3>Disco</h3><p>Si está disponible para tu cuenta, explora las funciones que ofrece la plataforma.</p></div></article>
+      <article><span>09</span><div><h3>Learn Your Way / Learn About</h3><p>Elige un tema, solicita una explicación y utiliza los recursos disponibles para repasar.</p></div></article>
+      <article><span>10</span><div><h3>Whisk</h3><p>Aporta imágenes de referencia y describe el resultado visual que deseas obtener.</p></div></article>
+      <article><span>11</span><div><h3>Gemini Code Assist</h3><p>Pide ayuda con una función concreta y prueba el código sugerido.</p></div></article>
+      <article><span>12</span><div><h3>Gemini CLI</h3><p>Consulta los requisitos oficiales y sigue las instrucciones de instalación.</p></div></article>
+      <article><span>13</span><div><h3>MusicFX</h3><p>Describe el estilo musical o ambiente que quieres explorar.</p></div></article>
+      <article><span>14</span><div><h3>TextFX</h3><p>Explora ideas de escritura y edita el resultado para conservar tu propio estilo.</p></div></article>
+      <article><span>15</span><div><h3>Code Wiki</h3><p>Revisa la documentación generada y verifica que corresponda al código actual.</p></div></article>
+    </div>
+
+    <div class="color-note mt-4">
+      <h3>Consejo para estudiar</h3>
+      <p>Verifica la información generada por la IA, protege tus datos personales y sigue las reglas de tu centro educativo.</p>
+    </div>
+    <button class="btn btn-primary-custom mt-3" onclick="mostrarSeccion('cuestionario')">Ir al cuestionario</button>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><strong>Innovación Y Técnología</strong><p>Aprender tecnología, una práctica a la vez.</p></div>
+    <p>© 2026 Innovación Y Técnología · Proyecto educativo</p>
+    <button class="back-top" onclick="irAlInicio()">Volver arriba ↑</button>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>

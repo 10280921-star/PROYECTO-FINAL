@@ -1,591 +1,176 @@
-/* =========================================================
-   Innovación Y Tecnología 
-   ARCHIVO: script.js
-   ========================================================= */
 
+/* =========================================
+   INNOVACIÓN Y TÉCNÓLOGÍA — JAVASCRIPT
+========================================= */
 
-/* =========================================================
-   CAMBIAR ENTRE SECCIONES
-   ========================================================= */
-
+/* NAVEGACIÓN ENTRE SECCIONES */
 function mostrarSeccion(id) {
+  const secciones = document.querySelectorAll(".seccion");
+  const seleccionada = document.getElementById(id);
 
+  if (!seleccionada) return;
 
-    /* Buscar todas las secciones */
+  secciones.forEach(seccion => seccion.classList.remove("activa"));
+  seleccionada.classList.add("activa");
 
-    const secciones =
-        document.querySelectorAll(".seccion");
+  document.querySelectorAll(".nav-links .nav-link").forEach(boton => {
+    boton.classList.remove("active");
+    const accion = boton.getAttribute("onclick") || "";
 
-
-    /* Ocultar todas */
-
-    secciones.forEach(function(seccion) {
-
-        seccion.classList.remove("activa");
-
-    });
-
-
-    /* Buscar la sección seleccionada */
-
-    const seccionSeleccionada =
-        document.getElementById(id);
-
-
-    /* Mostrar la sección */
-
-    if (seccionSeleccionada) {
-
-        seccionSeleccionada.classList.add("activa");
-
+    if (accion.includes("'" + id + "'")) {
+      boton.classList.add("active");
     }
+  });
 
+  window.scrollTo({ top: 0, behavior: "smooth" });
 
-    /* Buscar los botones del menú */
+  const menu = document.getElementById("menuPrincipal");
 
-    const botones =
-        document.querySelectorAll(".menu button");
-
-
-    /* Quitar clase activo */
-
-    botones.forEach(function(boton) {
-
-        boton.classList.remove("activo");
-
-    });
-
-
-    /* Identificar el botón seleccionado */
-
-    botones.forEach(function(boton) {
-
-
-        const texto =
-            boton.textContent
-                .trim()
-                .toLowerCase();
-
-
-        if (
-
-            (id === "inicio" &&
-                texto === "inicio")
-
-            ||
-
-            (id === "javascript" &&
-                texto === "javascript")
-
-            ||
-
-            (id === "jquery" &&
-                texto === "jquery")
-
-            ||
-
-            (id === "json" &&
-                texto === "json")
-
-            ||
-
-            (id === "hosting" &&
-                texto === "hosting")
-
-            ||
-
-            (id === "cuestionario" &&
-                texto === "cuestionario")
-
-        ) {
-
-            boton.classList.add("activo");
-
-        }
-
-    });
-
-
-    /* Llevar la pantalla arriba */
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
-
+  if (menu && menu.classList.contains("show") && window.bootstrap) {
+    bootstrap.Collapse.getOrCreateInstance(menu).hide();
+  }
 }
 
+/* MODO CLARO Y OSCURO */
+function alternarModoOscuro() {
+  document.body.classList.toggle("modo-oscuro");
 
+  const activado = document.body.classList.contains("modo-oscuro");
 
-/* =========================================================
-   EJEMPLO DE JAVASCRIPT
-   ========================================================= */
+  try {
+    localStorage.setItem("modoOscuro", String(activado));
+  } catch (error) {}
 
+  actualizarBotonTema();
+}
+
+function actualizarBotonTema() {
+  const boton = document.getElementById("modoOscuro");
+  if (!boton) return;
+
+  const oscuro = document.body.classList.contains("modo-oscuro");
+
+  boton.textContent = oscuro ? "☀️ Modo claro" : "🌙 Modo oscuro";
+  boton.setAttribute(
+    "aria-label",
+    oscuro ? "Activar modo claro" : "Activar modo oscuro"
+  );
+}
+
+function cargarModoOscuro() {
+  try {
+    if (localStorage.getItem("modoOscuro") === "true") {
+      document.body.classList.add("modo-oscuro");
+    }
+  } catch (error) {}
+
+  actualizarBotonTema();
+}
+
+/* EJEMPLO DE JAVASCRIPT */
 function ejemploJavaScript() {
+  const mensaje = document.getElementById("mensajeJS");
+  if (!mensaje) return;
 
+  mensaje.textContent =
+    "¡Hola! Este mensaje fue cambiado utilizando JavaScript.";
 
-    /* Buscar el elemento */
-
-    const resultado =
-        document.getElementById("resultadoJS");
-
-
-    /* Mostrarlo */
-
-    resultado.style.display =
-        "block";
-
-
-    /* Cambiar su contenido */
-
-    resultado.innerHTML =
-
-        "<strong>¡JavaScript está funcionando!</strong>" +
-
-        "<br><br>" +
-
-        "La función ejemploJavaScript() " +
-
-        "se ejecutó correctamente.";
-
+  mensaje.classList.add("demo-highlight");
 }
 
+/* EJEMPLO DE JQUERY */
+function ejemploJquery() {
+  const mensaje = document.getElementById("mensajeJquery");
+  if (!mensaje) return;
 
-
-/* =========================================================
-   EFECTO TIPO SLIDE TOGGLE
-   ========================================================= */
-
-function simularJQuery() {
-
-
-    const caja =
-        document.getElementById("cajaJquery");
-
-
-    /* Si está oculto */
-
-    if (
-        caja.style.display === "none"
-        ||
-        caja.style.display === ""
-    ) {
-
-
-        caja.style.display =
-            "block";
-
-
-        /* Animación de entrada */
-
-        caja.animate(
-
-            [
-
-                {
-
-                    opacity: 0,
-
-                    transform:
-                        "translateY(-20px)"
-
-                },
-
-                {
-
-                    opacity: 1,
-
-                    transform:
-                        "translateY(0)"
-
-                }
-
-            ],
-
-            {
-
-                duration: 400,
-
-                easing: "ease-out"
-
-            }
-
-        );
-
-    }
-
-
-    /* Si está visible */
-
-    else {
-
-
-        const animacion =
-            caja.animate(
-
-                [
-
-                    {
-
-                        opacity: 1,
-
-                        transform:
-                            "translateY(0)"
-
-                    },
-
-                    {
-
-                        opacity: 0,
-
-                        transform:
-                            "translateY(-20px)"
-
-                    }
-
-                ],
-
-                {
-
-                    duration: 400,
-
-                    easing: "ease-in"
-
-                }
-
-            );
-
-
-        /* Ocultar después de la animación */
-
-        animacion.onfinish =
-            function() {
-
-                caja.style.display =
-                    "none";
-
-            };
-
-    }
-
+  if (window.jQuery) {
+    $("#mensajeJquery").stop(true, true).slideToggle(250);
+  } else {
+    mensaje.classList.toggle("mensaje-oculto");
+  }
 }
 
-
-
-/* =========================================================
-   EVALUAR CUESTIONARIO
-   ========================================================= */
-
+/* CUESTIONARIO */
 function evaluarQuiz() {
-
-
-    /* Buscar todas las preguntas */
-
-    const preguntas =
-        document.querySelectorAll(".pregunta");
-
-
-    /* Contador */
-
-    let puntos = 0;
-
-
-    /* Recorrer preguntas */
-
-    preguntas.forEach(function(pregunta) {
-
-
-        /* Obtener respuesta correcta */
-
-        const correcta =
-            pregunta.dataset.correcta;
-
-
-        /* Obtener explicación */
-
-        const explicacion =
-            pregunta.dataset.explicacion;
-
-
-        /* Buscar opciones */
-
-        const opciones =
-            pregunta.querySelectorAll(".opcion");
-
-
-        /* Buscar respuesta seleccionada */
-
-        const seleccionada =
-            pregunta.querySelector(
-                "input:checked"
-            );
-
-
-        /* Limpiar resultados anteriores */
-
-        opciones.forEach(function(opcion) {
-
-            opcion.classList.remove(
-                "correcta",
-                "incorrecta"
-            );
-
-        });
-
-
-        /* Marcar respuesta correcta */
-
-        opciones.forEach(function(opcion) {
-
-
-            const input =
-                opcion.querySelector("input");
-
-
-            if (
-                input.value === correcta
-            ) {
-
-                opcion.classList.add(
-                    "correcta"
-                );
-
-            }
-
-        });
-
-
-        /* Revisar respuesta */
-
-        if (seleccionada) {
-
-
-            if (
-                seleccionada.value === correcta
-            ) {
-
-
-                puntos++;
-
-
-            }
-
-
-            else {
-
-
-                const opcionIncorrecta =
-                    seleccionada.closest(
-                        ".opcion"
-                    );
-
-
-                opcionIncorrecta.classList.add(
-                    "incorrecta"
-                );
-
-            }
-
-        }
-
-
-        /* Mostrar explicación */
-
-        const cajaExplicacion =
-            pregunta.querySelector(
-                ".explicacion"
-            );
-
-
-        cajaExplicacion.style.display =
-            "block";
-
-
-        cajaExplicacion.innerHTML =
-
-            "<strong>Explicación:</strong> " +
-
-            explicacion;
-
-    });
-
-
-    /* =====================================================
-       CALCULAR RESULTADO
-       ===================================================== */
-
-
-    const total =
-        preguntas.length;
-
-
-    const porcentaje =
-        Math.round(
-            (puntos / total) * 100
-        );
-
-
-    let mensaje;
-
-
-    /* Mensajes según puntuación */
-
-    if (porcentaje === 100) {
-
-
-        mensaje =
-            "🏆 ¡Excelente! Dominas los contenidos.";
-
-
+  const correctas = {
+    p1: "A",
+    p2: "A",
+    p3: "C",
+    p4: "B",
+    p5: "A",
+    p6: "C",
+    p7: "B",
+    p8: "A"
+  };
+
+  let puntos = 0;
+  let respondidas = 0;
+
+  Object.entries(correctas).forEach(([nombre, correcta], indice) => {
+    const seleccion = document.querySelector(
+      `input[name="${nombre}"]:checked`
+    );
+
+    const tarjeta = document.getElementById(`pregunta${indice + 1}`);
+
+    if (tarjeta) {
+      tarjeta.classList.remove("correcta", "incorrecta");
     }
 
-    else if (porcentaje >= 75) {
+    if (seleccion) {
+      respondidas++;
 
-
-        mensaje =
-            "👏 ¡Muy bien! Tienes un buen dominio del tema.";
-
-
+      if (seleccion.value === correcta) {
+        puntos++;
+        if (tarjeta) tarjeta.classList.add("correcta");
+      } else if (tarjeta) {
+        tarjeta.classList.add("incorrecta");
+      }
+    } else if (tarjeta) {
+      tarjeta.classList.add("incorrecta");
     }
+  });
 
-    else if (porcentaje >= 50) {
+  const resultado = document.getElementById("resultado");
+  if (!resultado) return;
 
+  if (respondidas < 8) {
+    resultado.textContent =
+      `Has respondido ${respondidas} de 8 preguntas. Completa todas para obtener tu resultado final.`;
+    return;
+  }
 
-        mensaje =
-            "📚 Buen trabajo. Te recomendamos repasar algunas secciones.";
+  const porcentaje = Math.round((puntos / 8) * 100);
 
+  let mensaje = puntos === 8
+    ? "¡Excelente trabajo!"
+    : puntos >= 5
+      ? "¡Buen trabajo! Sigue repasando."
+      : "Te recomendamos repasar los temas e intentarlo de nuevo.";
 
-    }
-
-    else {
-
-
-        mensaje =
-            "💪 Sigue estudiando. Puedes volver a intentarlo.";
-
-    }
-
-
-    /* Mostrar resultado */
-
-    const resultado =
-        document.getElementById(
-            "resultadoQuiz"
-        );
-
-
-    resultado.style.display =
-        "block";
-
-
-    resultado.innerHTML =
-
-        "<strong>Resultado final</strong>" +
-
-        "<br><br>" +
-
-        puntos +
-
-        "/" +
-
-        total +
-
-        " respuestas correctas" +
-
-        "<br><br>" +
-
-        "<strong>" +
-
-        porcentaje +
-
-        "%</strong>" +
-
-        "<br><br>" +
-
-        mensaje;
-
-
-    /* Llevar al resultado */
-
-    resultado.scrollIntoView({
-
-        behavior:
-            "smooth",
-
-        block:
-            "center"
-
-    });
-
+  resultado.textContent =
+    `Tu resultado: ${puntos} de 8 (${porcentaje}%). ${mensaje}`;
 }
 
+function limpiarQuiz() {
+  document.querySelectorAll(".pregunta").forEach(pregunta => {
+    pregunta.classList.remove("correcta", "incorrecta");
+  });
 
+  const resultado = document.getElementById("resultado");
 
-/* =========================================================
-   CUANDO CARGA LA PÁGINA
-   ========================================================= */
+  if (resultado) {
+    resultado.textContent = "";
+  }
+}
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+/* VOLVER AL INICIO */
+function irAlInicio() {
+  mostrarSeccion("inicio");
+}
 
-
-        /* Botón JavaScript */
-
-        const botonJS =
-            document.getElementById(
-                "botonJS"
-            );
-
-
-        if (botonJS) {
-
-            botonJS.addEventListener(
-                "click",
-                ejemploJavaScript
-            );
-
-        }
-
-
-        /* Botón jQuery */
-
-        const botonJquery =
-            document.getElementById(
-                "botonJquery"
-            );
-
-
-        if (botonJquery) {
-
-            botonJquery.addEventListener(
-                "click",
-                simularJQuery
-            );
-
-        }
-
-
-        /* Botón cuestionario */
-
-        const botonQuiz =
-            document.getElementById(
-                "botonQuiz"
-            );
-
-
-        if (botonQuiz) {
-
-            botonQuiz.addEventListener(
-                "click",
-                evaluarQuiz
-            );
-
-        }
-
-
-    }
-);
+/* INICIALIZACIÓN */
+document.addEventListener("DOMContentLoaded", () => {
+  cargarModoOscuro();
+  mostrarSeccion("inicio");
+});
